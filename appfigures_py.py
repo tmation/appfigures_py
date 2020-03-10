@@ -63,11 +63,11 @@ class AppFigures(object):
             'granularity': granularity
         }
 
-        resp = self.session.get(url=af.BASE_URL + '/reports/sales', params=params)
+        resp = self.session.get(url=self.BASE_URL + '/reports/sales', params=params)
         return resp.json()
 
-af = AppFigures('cf4db30b22c54c1cb73ea090185bac74', '6463ff3a2f6f4251a14f8bd666ac97b4')
-af.get_session(appfigures_secrets['access_token'], appfigures_secrets['access_token_secret'])
+# af = AppFigures('cf4db30b22c54c1cb73ea090185bac74', '6463ff3a2f6f4251a14f8bd666ac97b4')
+# af.get_session(appfigures_secrets['access_token'], appfigures_secrets['access_token_secret'])
 # af.get_session()
-test = af.get_downloads('2020-02-01','2020-02-03')
+# test = af.get_downloads('2020-02-01','2020-02-03')
 # pd.DataFrame(test)
