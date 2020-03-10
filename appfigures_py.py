@@ -10,12 +10,14 @@ from rauth import OAuth1Session, OAuth1Service
 class AppFigures(object):
     BASE_URL = "https://api.appfigures.com/v2"
 
-    def __init__(self, client_key, client_secret):
+    def __init__(self, client_key, client_secret, access_token=None, access_token_secret=None):
         self.client_key = client_key,
         self.client_secret = client_secret
         self.request_token_url = self.BASE_URL + "/oauth/request_token"
         self.authorize_url = self.BASE_URL + "/oauth/authorize"
         self.access_token_url = self.BASE_URL + "/oauth/access_token"
+
+        self.session = self.get_session(access_token=access_token,access_token_secret=access_token_secret)
 
     def get_service(self):
         return OAuth1Service(name="appfigures",
@@ -51,11 +53,6 @@ class AppFigures(object):
                                          request_token_secret,
                                          "POST",
                                          data={"oauth_verifier": verifier})
-
-        # print(session.__dict__)
-
-        self.session = session
-
         return session
 
     def get_downloads(self, start_date, end_date, group_by='stores', granularity='daily'):
