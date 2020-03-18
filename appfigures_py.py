@@ -1,7 +1,3 @@
-import sys
-sys.path.append('..')
-
-import pandas as pd
 from rauth import OAuth1Session, OAuth1Service
 
 
