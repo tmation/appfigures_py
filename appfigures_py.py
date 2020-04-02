@@ -68,4 +68,5 @@ class AppFigures(object):
         }
 
         resp = self.session.get(url=self.BASE_URL + '/reports/usage', params=params)
+        print(resp)
         return resp.json()
