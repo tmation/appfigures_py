@@ -59,3 +59,14 @@ class AppFigures(object):
 
         resp = self.session.get(url=self.BASE_URL + '/reports/sales', params=params)
         return resp.json()
+
+    def get_usage(self, start_date, end_date, group_by='network', networks='google_analytics'):
+        params = {
+            'start_date': start_date,
+            'end_date': end_date,
+            'group_by': group_by,
+            'networks': networks
+        }
+
+        resp = self.session.get(url=self.BASE_URL + '/reports/usage', params=params)
+        return resp.json()
