@@ -60,7 +60,7 @@ class AppFigures(object):
         resp = self.session.get(url=self.BASE_URL + '/reports/sales', params=params)
         return resp.json()
 
-    def get_usage(self, start_date, end_date, group_by='network'):
+    def get_usage(self, start_date, end_date, group_by='network,date'):
         params = {
             'start_date': start_date,
             'end_date': end_date,
