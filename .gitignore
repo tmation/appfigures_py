@@ -2,4 +2,5 @@
 config.py
 playground.py
 
+.DS_STORE
 *.pyc

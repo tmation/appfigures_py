@@ -70,3 +70,13 @@ class AppFigures(object):
         resp = self.session.get(url=self.BASE_URL + '/reports/usage', params=params)
         print(resp)
         return resp.json()
+
+    def get_adspend(self, start_date, end_date, group_by='product'):
+        params = {
+            'start_date': start_date,
+            'end_date': end_date,
+            'group_by': group_by,
+        }
+
+        resp = self.session.get(url=self.BASE_URL + '/reports/adspend', params=params)
+        return resp.json()
